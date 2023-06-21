@@ -30,12 +30,13 @@ exec_prefix=${prefix}
 libdir=${prefix}/lib
 includedir=${prefix}/include
 supported_protocols="DICT FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS MQTT POP3 POP3S RTSP SMB SMBS SMTP SMTPS TELNET TFTP"
-supported_features="SSL IPv6 unixsockets libz AsynchDNS Largefile SSPI alt-svc HSTS SPNEGO Kerberos NTLM unicode"
+supported_features="SSL IPv6 unixsockets libz AsynchDNS Largefile SSPI alt-svc HSTS SPNEGO Kerberos NTLM HTTPS-proxy unicode threadsafe"
 
 Name: libcurl
 URL: https://curl.se/
 Description: Library to transfer files with ftp, http, etc.
-Version: 7.84.0-DEV
-Libs: -L"${libdir}" -llibcurl 
-Libs.private:  -lwinmm -lws2_32 -lzlib -ladvapi32 -lcrypt32
-Cflags: -I"${includedir}" 
+Version: 7.87.0-DEV
+Libs: "-L${libdir}" -llibcurl
+Libs.private:  -lwinmm -lws2_32 -lzlib -ladvapi32 -lcrypt32 -lbcrypt
+Cflags: "-I${includedir}" 
+
